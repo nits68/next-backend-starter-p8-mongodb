@@ -1,0 +1,46 @@
+{
+  "name": "next-backend-starter-p8-mongodb",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3000",
+    "build": "prisma contract emit && next build",
+    "start": "next start",
+    "postinstall": "prisma contract emit",
+    "contract:emit": "prisma contract emit",
+    "db:init": "prisma db init",
+    "db:update": "prisma db update",
+    "db:verify": "prisma db verify",
+    "db:sign": "prisma db sign",
+    "db:seed": "tsx prisma/seed.ts",
+    "migration:plan": "prisma migration plan",
+    "migration:status": "prisma migration status",
+    "migrate": "prisma db migrate --advance-ref db"
+  },
+  "dependencies": {
+    "@prisma/orm-mongo": "^8.0.0-rc.12",
+    "dotenv": "^18.0.4",
+    "next": "16.3.6"
+  },
+  "devDependencies": {
+    "@prisma/cli-engine": "^0.6.1",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.6",
+    "prettier": "^3.9.9",
+    "prisma": "^8.0.0-rc.17",
+    "tsx": "^4.23.15",
+    "typescript": "^5",
+    "typescript-eslint": "^8.70.1"
+  },
+  "allowScripts": {
+    "esbuild": false,
+    "unrs-resolver": false,
+    "workerd": false
+  },
+  "overrides": {
+    "@effect/vitest": "4.0.0-rc.115"
+  }
+}

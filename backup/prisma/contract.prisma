@@ -1,0 +1,35 @@
+// use prisma-8
+model Film {
+  _id       ObjectId @id()
+  content   String
+  createdAt DateTime
+  title     String   @unique()
+  updatedAt DateTime
+
+  @@map("films")
+}
+
+model User {
+  _id       ObjectId @id()
+  createdAt DateTime
+  email     String   @unique()
+  name      String?
+  updatedAt DateTime
+  username  String?
+  posts     Post[]
+
+  @@map("users")
+}
+
+model Post {
+  _id       ObjectId @id()
+  authorId  ObjectId
+  content   String?
+  createdAt DateTime
+  title     String
+  updatedAt DateTime
+  author    User     @relation(fields:[authorId], references:[_id])
+
+  @@index([authorId])
+  @@map("posts")
+}
